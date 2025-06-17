@@ -1,34 +1,35 @@
-"use client";
+// Higher ORder Component
+// É um componente que recebe um componente e o renderiza
+// mas antes de renderizá-lo, executa alguma ação
+// ou, passa alguma prop extra pra esse componente
 
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { type ReactNode } from "react";
 
-import { authClient } from "@/lib/auth-client";
+import { auth } from "@/lib/auth";
 
-interface WithAuthenticationProps {
-  children: ReactNode;
-  mustHaveClinic?: boolean;
-  mustHavePlan?: boolean;
-}
-
-export default function WithAuthentication({
+const WithAuthentication = async ({
   children,
-  mustHaveClinic,
-  mustHavePlan,
-}: WithAuthenticationProps) {
-  const session = authClient.useSession();
-
+  mustHavePlan = false,
+  mustHaveClinic = false,
+}: {
+  children: React.ReactNode;
+  mustHavePlan?: boolean;
+  mustHaveClinic?: boolean;
+}) => {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
   if (!session?.user) {
     redirect("/authentication");
   }
-
-  if (mustHaveClinic && !session.user.clinic) {
-    redirect("/clinic-form");
-  }
-
   if (mustHavePlan && !session.user.plan) {
     redirect("/new-subscription");
   }
+  if (mustHaveClinic && !session.user.clinic) {
+    redirect("/clinic-form");
+  }
+  return children;
+};
 
-  return <>{children}</>;
-}
+export default WithAuthentication;
