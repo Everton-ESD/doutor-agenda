@@ -1,0 +1,13 @@
+Crie uma página de pacientes. Essa página deve ter o botão "Adicionar paciente". Esse botã abrirá um Dialog com formulário.
+
+Esse formulárrio terá os seguintes campos?
+-Nome do paciente
+-Email
+_Número de telefone (com máscra)
+_sexo: select com duas opções, "Masculino" e "Feminino"
+
+Crie um componente "AddPatientButton" que renderizará o componente "UpsertPatientForm".
+
+Ao enviar o formulario, chame uma nova server action, que vai fazer upsert do paciente no banco de dados.
+
+@general.mdc  use as regras

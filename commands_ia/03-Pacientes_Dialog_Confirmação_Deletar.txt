@@ -1,0 +1,2 @@
+@table-action.tsx ao clicar no botão de "Excluir" exiba um alertDialog. Ao confirmar a exclusão, uma server action deve ser chamada. Ela vai deletar o paciente no banco de dados.
+Exemplo: @doctor-card.tsx.

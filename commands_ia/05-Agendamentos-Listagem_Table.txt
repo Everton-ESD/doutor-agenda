@@ -1,0 +1,6 @@
+@page.tsx - Agora, liste os agendamentos já cadastrados em uma DataTable, assim como é feito no @page.tsx.E sobre o formulario de agendamento, ele não sera de upsert, mas apenas de criação.
+
+Para cada linha da tabela de agendamentos, mostre um DropDownsMenu, com opção de Deletar. 
+Exemplois: @table-columns.tsx e @table-actions.tsx.
+Ao clicar em deletar, exiba um AlertDialog para confirmar a exclusão. 
+Ao confirmar, chame uma server action que faça a deleção do agendamento.

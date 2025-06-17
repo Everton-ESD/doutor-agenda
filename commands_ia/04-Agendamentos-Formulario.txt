@@ -1,0 +1,11 @@
+Crie uma pagina de agendamentos. Essa pagina deve ter um botão de "Novo agendamento". Esse botão deve abrir um Dialog com um formulário de criação de um agendamento.
+
+Esse formulário terá os seguintes campos?:
+- Select de pacientes: recupere os pacientes do banco de dados na pagina de agendamentos, que vai ser um server components, e passe-os como prop para o formulario.
+- Select de médicos: recupere os médicosdo banco de dados na pagina de agendamentos, que vai ser um server components, e passe-os como prop para o formulario.
+- Valor da consulta: deve ser um input monetario formatado, e só deve ser habilitado caso o médico já tenha sido selecionado.O valor padrão dele deve ser o valor da consulta do médico selecionado ( campo "appointmentPriceInCents" no banco de dados).
+- Data: só estará habilitado ao selecionar paciente e médico. Use o componente DatePìcker do shadcn. (popuver e calendar)
+- Select de horários: só estará habilitado ao selecionar paciente e médico - deixe sem opções por enquanto - vazio
+
+- não crie a listagem ainda
+@gerenal.mds - Use as regras
